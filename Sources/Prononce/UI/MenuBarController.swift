@@ -74,6 +74,13 @@ final class MenuBarController: NSObject, NSMenuDelegate {
         speedItem.submenu = speedSubmenu
         menu.addItem(speedItem)
 
+        // Translation Submenu
+        let translationItem = NSMenuItem(title: "Translation", action: nil, keyEquivalent: "")
+        let translationSubmenu = NSMenu()
+        populateTranslationSubmenu(translationSubmenu)
+        translationItem.submenu = translationSubmenu
+        menu.addItem(translationItem)
+
         menu.addItem(NSMenuItem.separator())
 
         // Launch at Login Toggle
@@ -194,7 +201,28 @@ final class MenuBarController: NSObject, NSMenuDelegate {
         }
     }
 
+    private func populateTranslationSubmenu(_ submenu: NSMenu) {
+        for mode in AppSettings.TranslationMode.allCases {
+            let item = NSMenuItem(
+                title: mode.displayName,
+                action: #selector(selectTranslationModeAction(_:)),
+                keyEquivalent: ""
+            )
+            item.target = self
+            item.representedObject = mode
+            item.state = (settings.translationMode == mode) ? .on : .off
+            submenu.addItem(item)
+        }
+    }
+
     // MARK: - Actions
+
+    @objc private func selectTranslationModeAction(_ sender: NSMenuItem) {
+        if let mode = sender.representedObject as? AppSettings.TranslationMode {
+            settings.translationMode = mode
+            rebuildMenu()
+        }
+    }
 
     @objc private func speakSelectedTextAction() {
         AppDelegate.shared?.triggerPronunciationFlow()

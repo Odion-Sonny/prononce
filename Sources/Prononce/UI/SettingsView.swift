@@ -71,6 +71,23 @@ struct SettingsView: View {
             }
 
             Section {
+                Picker("English Translation", selection: $settings.translationMode) {
+                    ForEach(AppSettings.TranslationMode.allCases) { mode in
+                        Text(mode.displayName).tag(mode)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(.vertical, 4)
+
+                Text("Translates French to English locally on your Mac using on-device neural translation.")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            } header: {
+                Text("Translation")
+                    .font(.headline)
+            }
+
+            Section {
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Accessibility Permission")

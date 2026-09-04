@@ -7,11 +7,28 @@ import Combine
 final class AppSettings: ObservableObject {
     static let shared = AppSettings()
 
+    enum TranslationMode: String, CaseIterable, Identifiable {
+        case automatic = "automatic"
+        case onDemand = "onDemand"
+        case disabled = "disabled"
+
+        var id: String { rawValue }
+
+        var displayName: String {
+            switch self {
+            case .automatic: return "Automatic"
+            case .onDemand: return "On-Demand"
+            case .disabled: return "Off"
+            }
+        }
+    }
+
     private enum Keys {
         static let selectedVoiceIdentifier = "prononce_selected_voice_id"
         static let speechRate = "prononce_speech_rate"
         static let showFloatingPanel = "prononce_show_floating_panel"
         static let hasCompletedOnboarding = "prononce_has_completed_onboarding"
+        static let translationMode = "prononce_translation_mode"
     }
 
     private let defaults = UserDefaults.standard
@@ -40,6 +57,12 @@ final class AppSettings: ObservableObject {
         }
     }
 
+    @Published var translationMode: TranslationMode {
+        didSet {
+            defaults.set(translationMode.rawValue, forKey: Keys.translationMode)
+        }
+    }
+
     @Published var isLaunchAtLoginEnabled: Bool = false
 
     private init() {
@@ -54,6 +77,13 @@ final class AppSettings: ObservableObject {
         }
 
         self.hasCompletedOnboarding = defaults.bool(forKey: Keys.hasCompletedOnboarding)
+
+        if let savedMode = defaults.string(forKey: Keys.translationMode),
+           let mode = TranslationMode(rawValue: savedMode) {
+            self.translationMode = mode
+        } else {
+            self.translationMode = .automatic
+        }
     }
 
     /// Predefined speed presets for French learners

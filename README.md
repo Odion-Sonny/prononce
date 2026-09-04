@@ -14,11 +14,12 @@ No copying. No pasting. No Electron. No subscriptions. No cloud latency. 100% of
 - **Zero-Polling Selection Capture**: Uses native macOS Accessibility (`AXUIElement`) with a resilient synthetic copy fallback that **instantly restores your prior clipboard contents**—your clipboard is never overwritten.
 - **Apple Native High-Quality Voices**: Leverages `AVSpeechSynthesizer` with local French voices (`fr-FR`, `fr-CA`, etc.) installed on macOS.
 - **Learner-Optimized Playback Speed**: Choose from **0.5x**, **0.75x**, **1.0x**, **1.25x**, or **1.5x**—with a calibrated pedagogical speed curve making **0.75x** and **0.5x** noticeably slow, clear, and easy to follow.
-- **Floating Pronunciation HUD**: A sleek, non-activating floating card displays the spoken text with instant **↻ Replay** and speed controls. It auto-dismisses after 3.5 seconds and never steals keyboard focus.
+- **Floating Pronunciation HUD**: A sleek, non-activating floating card displays the spoken text with instant **↻ Replay** and speed controls. It auto-dismisses after a few seconds and never steals keyboard focus.
+- **Local On-Device English Translation**: Displays immediate French-to-English translation directly in the floating card using Apple's built-in `Translation` framework and Dictionary services. Toggle between **Automatic**, **On-Demand**, or **Off** via Menu Bar or Settings with 100% offline privacy.
 - **Menu Bar Utility**: Runs quietly in the menu bar with zero Dock clutter (`LSUIElement`).
 - **Tiny Footprint**:
-  - Binary size: ~**1.1 MB**
-  - DMG installer: ~**850 KB**
+  - Binary size: ~**1.3 MB**
+  - DMG installer: ~**900 KB**
   - Idle CPU usage: **0.0%** (zero polling, fully event-driven)
 - **Launch at Login**: Native macOS 13+ `SMAppService` integration.
 - **100% Offline & Private**: Zero analytics, zero accounts, zero cloud requests, zero data storage.
@@ -108,6 +109,7 @@ Click the **🇫🇷** icon in the macOS menu bar to access:
 - **Speak Selected Text (`⇧⌘F`)**: Manually trigger pronunciation.
 - **Voice**: Choose between installed French voices (France: Thomas, Jacques, Audrey, etc.; Canada: Amélie, etc.).
 - **Speed**: Select playback rate (`0.5x`, `0.75x`, `1.0x`, `1.25x`, `1.5x`).
+- **Translation**: Switch between `Automatic`, `On-Demand`, or `Off`.
 - **Launch at Login**: Enable or disable automatic startup.
 - **Show Floating Panel**: Toggle the floating HUD card.
 - **Settings... (`⌘,`)**: Open the native preferences window.

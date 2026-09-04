@@ -20,6 +20,7 @@
 		7B000B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000B /* SettingsView.swift */; };
 		7B000C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000C /* OnboardingView.swift */; };
 		7B000D /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7A000D /* AppIcon.icns */; };
+		7B000E /* DictionaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A000F /* DictionaryService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7A000C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		7A000D /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = AppIcon.icns; path = Resources/AppIcon.icns; sourceTree = "<group>"; };
 		7A000E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
+		7A000F /* DictionaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				7A0005 /* HotkeyService.swift */,
 				7A0006 /* PermissionsService.swift */,
 				7A0007 /* LaunchAtLoginService.swift */,
+				7A000F /* DictionaryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				7B000A /* FloatingHUDPanel.swift in Sources */,
 				7B000B /* SettingsView.swift in Sources */,
 				7B000C /* OnboardingView.swift in Sources */,
+				7B000E /* DictionaryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
